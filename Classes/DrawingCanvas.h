@@ -20,10 +20,12 @@ private:
     bool init() override;
     void onEnter() override;
     void onExit() override;
-
+    
 protected:
     cocos2d::DrawNode* drawNode;
-
+    cocos2d::LayerColor* background;
+    
+    void setupTouchHandling();
 };
 
 #endif /* defined(__Doodler__DrawingCanvas__) */
