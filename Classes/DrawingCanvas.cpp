@@ -7,6 +7,7 @@
 //
 
 #include "DrawingCanvas.h"
+#include "Constants.h"
 
 USING_NS_CC;
 
@@ -31,7 +32,7 @@ void DrawingCanvas::onEnter()
 
     Size visibleSize = CCDirector::getInstance()->getVisibleSize();
     
-    background = LayerColor::create(Color4B(255, 255, 255, 255));
+    background = LayerColor::create(Color4B(COLOR_WHITE));
     this->addChild(background);
 
     this->setContentSize(visibleSize);
@@ -62,7 +63,7 @@ void DrawingCanvas::setupTouchHandling()
     {
         Vec2 touchPos = drawNode->convertTouchToNodeSpace(touch);
         CCLOG("Touch Moved! x:%f y:%f", touchPos.x, touchPos.y);
-        drawNode->drawSegment(lastTouchPos, touchPos, 4.0f, Color4F(0.0f, 0.0f, 0.0f, 1.0f));
+        drawNode->drawSegment(lastTouchPos, touchPos, INITIAL_RADIUS, Color4F(0.0f, 0.0f, 0.0f, 1.0f));
         lastTouchPos = touchPos;
     };
     
@@ -86,6 +87,27 @@ void DrawingCanvas::setupMenus()
     backButton->loadTextures("backButton.png", "backButtonPressed.png");
     backButton->addTouchEventListener(CC_CALLBACK_2(DrawingCanvas::backPressed, this));
     this->addChild(backButton);
+    
+    check = Sprite::create("checkMark.png");
+    check->setAnchorPoint(Vec2(0.5f, 0.5f));
+    check->setNormalizedPosition(Vec2(0.5f, 0.5f));
+    
+    Node* colorButtonLayout = Node::create();
+    colorButtonLayout->setContentSize(Size(visibleSize.width, visibleSize.height * 0.2f));
+    colorButtonLayout->setAnchorPoint(Vec2(0.5f, 0.0f));
+    colorButtonLayout->setPosition(Vec2(visibleSize.width / 2.0f, 0.0f));
+    this->addChild(colorButtonLayout);
+    
+    for (int i = 1; i <= 5; ++i)
+    {
+        ui::Button* colorButton = ui::Button::create();
+        colorButton->setAnchorPoint(Vec2(0.5f, 0.0f));
+        colorButton->loadTextures("colorSwatch.png", "colorSwatch.png");
+        colorButton->addTouchEventListener(CC_CALLBACK_2(DrawingCanvas::colorChangePressed, this));
+        colorButton->setColor(Color3B(COLOR_BLUE));
+        colorButton->setNormalizedPosition(Vec2((i - 3) * 0.5f, 0.5f));
+        colorButtonLayout->addChild(colorButton);
+    }
 }
 
 void DrawingCanvas::clearPressed(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)
@@ -102,4 +124,9 @@ void DrawingCanvas::backPressed(cocos2d::Ref* pSender, cocos2d::ui::Widget::Touc
     {
         Director::getInstance()->popScene();
     }
+}
+
+void DrawingCanvas::colorChangePressed(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)
+{
+    
 }
