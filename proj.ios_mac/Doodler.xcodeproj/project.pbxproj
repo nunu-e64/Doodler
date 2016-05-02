@@ -119,6 +119,7 @@
 		BF1C47EA1293683800B63C5D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		CAA850331CD7343E00C1399C /* Lobby.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Lobby.cpp; sourceTree = "<group>"; };
 		CAA850341CD7343E00C1399C /* Lobby.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lobby.h; sourceTree = "<group>"; };
+		CAA850371CD73E3300C1399C /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = ../proj.ios_mac/Constants.h; sourceTree = "<group>"; };
 		CAB85C181CD20E01005F2188 /* DrawingCanvas.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DrawingCanvas.cpp; sourceTree = "<group>"; };
 		CAB85C191CD20E01005F2188 /* DrawingCanvas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawingCanvas.h; sourceTree = "<group>"; };
 		D44C620B132DFF330009C878 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
@@ -250,13 +251,14 @@
 			isa = PBXGroup;
 			children = (
 				46880B8419C43A87006E1F66 /* AppDelegate.cpp */,
-				CAB85C181CD20E01005F2188 /* DrawingCanvas.cpp */,
-				CAA850331CD7343E00C1399C /* Lobby.cpp */,
-				CAA850341CD7343E00C1399C /* Lobby.h */,
-				CAB85C191CD20E01005F2188 /* DrawingCanvas.h */,
 				46880B8519C43A87006E1F66 /* AppDelegate.h */,
+				CAA850371CD73E3300C1399C /* Constants.h */,
+				CAB85C181CD20E01005F2188 /* DrawingCanvas.cpp */,
+				CAB85C191CD20E01005F2188 /* DrawingCanvas.h */,
 				46880B8619C43A87006E1F66 /* HelloWorldScene.cpp */,
 				46880B8719C43A87006E1F66 /* HelloWorldScene.h */,
+				CAA850331CD7343E00C1399C /* Lobby.cpp */,
+				CAA850341CD7343E00C1399C /* Lobby.h */,
 			);
 			name = Classes;
 			path = ../Classes;

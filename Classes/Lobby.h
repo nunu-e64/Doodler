@@ -10,6 +10,7 @@
 #define __Doodler__Lobby__
 
 #include "cocos2d.h"
+#include "CocosGUI.h"
 
 class Lobby : public cocos2d::Node
 {
@@ -21,6 +22,8 @@ private:
     void onEnter() override;
     void onExit() override;
     void setupUI();
+    void soloPressed(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
+    void duoPressed(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
 };
 
 #endif /* defined(__Doodler__Lobby__) */
