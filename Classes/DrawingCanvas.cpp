@@ -36,6 +36,8 @@ void DrawingCanvas::onEnter()
     
     background = LayerColor::create(Color4B(255, 255, 255, 255));
     this->addChild(background);
+
+    this->addChild(drawNode);
     
     this->setupTouchHandling();
 }

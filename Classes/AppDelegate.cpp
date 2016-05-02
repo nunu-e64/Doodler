@@ -31,7 +31,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
         director->setOpenGLView(glview);
     }
 
-    director->getOpenGLView()->setDesignResolutionSize(640, 960, ResolutionPolicy::FIXED_WIDTH);    
+    director->getOpenGLView()->setDesignResolutionSize(640, 960, ResolutionPolicy::FIXED_WIDTH);
     
 
     // turn on display FPS
@@ -40,6 +40,30 @@ bool AppDelegate::applicationDidFinishLaunching() {
     // set FPS. the default value is 1.0/60 if you don't call this
     director->setAnimationInterval(1.0 / 60);
 
+    // add search path
+    FileUtils::getInstance()->addSearchPath("res");
+    
+    cocos2d::Size targetSize = glview->getFrameSize();
+    
+    std::vector<std::string> searchResolutionsOrder(1);
+    
+    if (targetSize.height < 481.0f)
+    {
+        searchResolutionsOrder[0] = "resources-1x";
+    }
+    else if (targetSize.height < 1335.0f)
+    {
+        searchResolutionsOrder[0] = "resources-2x";
+    }
+    else if (targetSize.height < 1921.0f)
+    {
+        searchResolutionsOrder[0] = "resources-3x";
+    }
+    else
+    {
+        searchResolutionsOrder[0] = "resources-4x";
+    }
+    FileUtils::getInstance()->setSearchResolutionsOrder(searchResolutionsOrder);
     FileUtils::getInstance()->addSearchPath("res");
 
     // create a scene. it's an autorelease object

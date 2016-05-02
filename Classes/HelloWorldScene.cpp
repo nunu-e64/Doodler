@@ -1,7 +1,7 @@
 #include "HelloWorldScene.h"
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
-#include "DrawingCanvas.h"
+#include "Lobby.h"
 
 USING_NS_CC;
 
@@ -34,9 +34,9 @@ bool HelloWorld::init()
 
     addChild(rootNode);
 
-    DrawingCanvas* drawingCanvas = DrawingCanvas::create();
+    Lobby* lobby = Lobby::create();
     
-    this->addChild(drawingCanvas);
+    this->addChild(lobby);
     
     return true;
 }
